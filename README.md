@@ -1,1 +1,4 @@
-# AirQualityMonitorAPI
+# Air Quality Monitor API
+
+## Опис:
+API для додатку моніторингу якості повітря у приміщенні або на вулиці. 
