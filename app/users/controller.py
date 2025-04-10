@@ -7,6 +7,15 @@ from app.users.service import UserService
 UserService = UserService(db)
 
 
+@app.route('/user/<string:email>', methods=['GET'])
+def get_user_by_email(email: str):
+    user, status_code = UserService.get_user_by_email(email)
+    if user:
+        return jsonify(user.to_dict()), status_code
+    else:
+        return jsonify({"Error": "Bad request"}), status_code
+
+
 @app.route('/user/register', methods=['POST'])
 def register_user():
     data = request.get_json()
