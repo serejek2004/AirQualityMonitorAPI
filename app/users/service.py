@@ -46,3 +46,11 @@ class UserService:
             return user, 200
         else:
             return None, 404
+
+    def get_user_by_email(self, email: str) -> tuple[None, int] | tuple[Users, int]:
+        user = self.dao.get_by_email(email)
+
+        if not user:
+            return None, 404
+        else:
+            return user, 200
